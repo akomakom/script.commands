@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.commands"
        name="Commands"
-       version="1.0.3"
+       version="1.0.4"
        provider-name="AddonScriptorDE">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -11,11 +11,36 @@
     <provides>executable</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-      <summary lang="en">Map multiple XBMC commands to one remote button. All availabe commands: http://wiki.xbmc.org/?title=List_of_Built_In_Functions</summary>
-      <summary lang="de">Mehrere XBMC Befehle einer Taste zuweisen. Alle verfügbaren Befehle: http://wiki.xbmc.org/?title=List_of_Built_In_Functions</summary>
+      <summary lang="en">Map multiple XBMC commands to one remote button</summary>
+      <summary lang="de">Mehrere XBMC Befehle einer Taste zuweisen</summary>
       <language></language>
-      <description lang="en">Map multiple XBMC commands to one remote button. All availabe commands: http://wiki.xbmc.org/?title=List_of_Built_In_Functions</description>
-      <description lang="de">Mehrere XBMC Befehle einer Taste zuweisen. Alle verfügbaren Befehle: http://wiki.xbmc.org/?title=List_of_Built_In_Functions</description>
+      <description lang="en">
+          Map multiple XBMC commands to one remote button. All availabe commands: http://wiki.xbmc.org/?title=List_of_Built_In_Functions
+
+          Simple Usage: Define one or more command sequences using the menus of this AddOn,
+            then use the Keymap Editor AddOn to assign a key to the Commands Addon.
+            This method causes a command sequence selection menu to be shown on keypress.
+
+          Advanced Invocation Examples: (Edit the keymap file):
+            - Directly invoke a command sequence on keypress, name is the value you assigned to it in the menus:
+            RunScript(script.commands,,&amp;name=NAME-OF-YOUR-COMMAND-SEQUENCE)
+            - Specify a different set of commands (works with or without the name parameter)
+            RunScript(script.commands,,&amp;key=NAME-OF-DIFFERENT-COMMAND-SET&amp;name=NAME-OF-YOUR-COMMAND-SEQUENCE)
+
+      </description>
+      <description lang="de">
+          Mehrere XBMC Befehle einer Taste zuweisen. Alle verfügbaren Befehle: http://wiki.xbmc.org/?title=List_of_Built_In_Functions
+
+          Einfache Verwendung: Definieren Sie eine oder mehrere Befehlsfolgen mit den Menüs dieses AddOn,
+             Verwenden Sie dann den Keymap Editor AddOn, um dem Command Addon einen Schlüssel zuzuweisen.
+             Diese Methode bewirkt, dass ein Befehlssequenz-Auswahlmenü auf Tastendruck angezeigt wird.
+
+          Advanced Invocation Beispiele: (Bearbeiten der Keymap-Datei):
+             - Direktes Aufrufen einer Befehlsfolge auf Tastendruck, Name ist der Wert, den Sie ihm in den Menüs zugewiesen haben:
+          RunScript(script.commands,,&amp;name=NAME-OF-YOUR-COMMAND-SEQUENCE)
+             - Geben Sie einen anderen Satz von Befehlen an (arbeitet mit oder ohne den Namensparameter)
+          RunScript(script.commands,,&amp;key=NAME-OF-DIFFERENT-COMMAND-SET&amp;name=NAME-OF-YOUR-COMMAND-SEQUENCE)
+      </description>
       <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
       <source>https://github.com/AddonScriptorDE/script.commands</source>
       <forum>http://forum.xbmc.org/showthread.php?tid=134129</forum>

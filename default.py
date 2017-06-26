@@ -24,7 +24,7 @@ def importCommands(key):
         myCommands.append("- "+translation(30001))
         myCommands.append("- "+translation(30005))
 
-def commandsMain(key):
+def commandsMain(key, name = ""):
         importCommands(key)
         myCommandsTemp=[]
         for temp in myCommands:
@@ -32,8 +32,14 @@ def commandsMain(key):
             myCommandsTemp.append(temp[:temp.find("###")])
           else:
             myCommandsTemp.append(temp)
-        dialog = xbmcgui.Dialog()
-        nr=dialog.select("Commands", myCommandsTemp)
+
+        if name in myCommandsTemp:
+            # skip dialog, run the provided command name directly
+            nr = myCommandsTemp.index(name)
+        else:
+            dialog = xbmcgui.Dialog()
+            nr=dialog.select("Commands", myCommandsTemp)
+
         if nr>=0:
           entry=myCommands[nr]
           if entry.find("###")>=0:
@@ -318,8 +324,13 @@ params=parameters_string_to_dict(sys.argv[2])
 key=params.get('key')
 if type(key)!=type(str()):
   key=''
+# Name is the string name of the command so that it can be executed instantly without
+# presenting a select dialog.
+name=params.get('name')
+if type(name)!=type(str()):
+    name=''
 
 if key != '':
-    commandsMain('_'+key)
+    commandsMain('_'+key, name)
 else:
-    commandsMain('')
+    commandsMain('', name)
